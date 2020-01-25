@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Install the software expected by DSpace
 
 Requirements
 ------------
@@ -13,11 +13,7 @@ good idea to mention in this section that the boto package is required.
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+in `defaults/main.yml` add the `dspace_user` (we are using dspace) if you prefer another user
 
 Dependencies
 ------------
@@ -34,7 +30,7 @@ passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: ansible/roles/buildenv, x: 42 }
+         - { role: buildenv, x: 42 }
 
 License
 -------
