@@ -1,0 +1,7 @@
+---
+# defaults file for ansible/roles/buildenv
+project_group: "{{ dspace_group | default(dspaceg) }}"
+project_user: "{{ dspace_user | default(dspaceu) }}"
+dspaceg: "dspace"
+dspaceu: "{{ dspaceg }}"
+project_user_home: "/var/local/{{ project_user }}"

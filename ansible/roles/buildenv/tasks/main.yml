@@ -1,0 +1,22 @@
+---
+# tasks file for ansible/roles/buildenv
+- name: create project group
+  group:
+    name: "{{ project_group }}"
+    state: present
+    system: true
+
+- name: create user account
+  user:
+    name: "{{ project_user }}"
+    group: "{{ project_user }}"
+    home: "{{ project_user_home }}"
+    force: true
+    state: present
+
+- name: install software needed to for dspace and other needed utilities
+  apt:
+    name: "{{ build_env_software }}"
+    state: present
+    update_cache: true
+  changed_when: false

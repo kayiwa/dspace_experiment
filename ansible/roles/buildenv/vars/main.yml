@@ -1,0 +1,16 @@
+---
+# vars file for ansible/roles/buildenv
+build_env_software:
+  - git
+  - xpdf
+  - lrzip
+  - iotop
+  - mtr
+  - links
+  - htop
+  - vim
+  - libmagick++-dev
+  - imagemagick
+  - ghostscript
+  - unzip
+  - build-essential

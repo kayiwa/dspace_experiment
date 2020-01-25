@@ -1,0 +1,4 @@
+---
+dspace_group: "conan"
+dspace_user: "conan"
+ansible_user: "vagrant"
