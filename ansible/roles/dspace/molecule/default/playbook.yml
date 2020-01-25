@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    - running_on_server: false
+    - deploy_user: 'dspace'
+  roles:
+    - role: dspace
