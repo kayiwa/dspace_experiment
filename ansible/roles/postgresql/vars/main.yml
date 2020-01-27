@@ -2,17 +2,21 @@
 # vars file for roles/postgresql
 _postgres_packages:
   default:
-    - postgresql
+    - "postgresql-{{ major_version }}"
     - postgresql-client
 
 postgres_packages: "{{ _postgres_packages['default'] }}"
 
 _postgres_dir:
-  default: /var/lib/postgresql/11
+  default: "/var/lib/postgresql/{{ major_version }}"
 
 postgres_dir: "{{ _postgres_dir['default'] }}"
 
 _postgres_conf_dir:
-  default: /etc/postgresql/11/main
+  default: "/etc/postgresql/{{ major_version }}/main"
 
 postgres_conf_dir: "{{ _postgres_conf_dir['default'] }}"
+
+major_version: 12
+
+postgresql_upstream_repo: "deb https://apt.postgresql.org/pub/repos/apt bionic-pgdg main"

@@ -1,5 +1,18 @@
 ---
 # tasks file for roles/postgresql
+#
+- name: postgresql key
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+  become: true
+
+- name: Configure upstream APT repository
+  apt_repository:
+    repo: "{{ postgresql_upstream_repo }}"
+    state: present
+    update_cache: true
+
 - name: install postgres
   package:
     name: "{{ postgres_packages }}"
