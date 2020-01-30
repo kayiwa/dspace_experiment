@@ -1,0 +1,23 @@
+---
+- name: the pgcrypto extension on this database
+  postgresql_ext:
+    name: pgcrypto
+    db: "{{ project_user }}"
+  become: true
+  become_user: postgres
+
+- name: change ownership of directory
+  file:
+    path: "{{ source_dir }}"
+    state: directory
+    owner: "{{ project_user }}"
+    group: "{{ project_user }}"
+    recurse: true
+
+- name: build it with maven
+  command: /usr/bin/mvn -U clean package
+  args:
+    chdir: /opt/dspace-6.3-release/dspace/
+  ignore_errors: true
+  become: true
+  become_user: '{{ project_user }}'

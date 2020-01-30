@@ -1,0 +1,46 @@
+---
+- name: replace tomcat8 user with dspace user
+  template:
+    src: default_tomcat8.j2
+    dest: /etc/default/tomcat8
+  become: true
+
+- name: tomcat | configure server.xml
+  template:
+    src: templates/server.xml.j2
+    dest: /etc/tomcat8/server.xml
+  become: true
+
+- name: change tomcat common directory permissions
+  file:
+    path: /var/lib/tomcat8/common
+    owner: "{{ project_user }}"
+    group: "{{ project_user }}"
+    recurse: true
+
+- name: change tomcat shared directory permissions
+  file:
+    path: /var/lib/tomcat8/shared
+    owner: "{{ project_user }}"
+    group: "{{ project_user }}"
+    recurse: true
+
+- name: change tomcat webapps directory permissions
+  file:
+    path: /var/lib/tomcat8/webapps
+    owner: "{{ project_user }}"
+    group: "{{ project_user }}"
+    recurse: true
+
+- name: change cache tomcat directory permissions
+  file:
+    path: /var/cache/tomcat8
+    owner: "{{ project_user }}"
+    group: adm
+    recurse: true
+
+- name: add the project user to the etc init.d script
+  template:
+    src: initd_tomcat.j2
+    dest: /etc/init.d/tomcat8
+    mode: "a+x"

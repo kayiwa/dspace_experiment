@@ -1,0 +1,12 @@
+---
+# defaults file for dataspace
+project_db_password: "{{ project_user }}"
+project_db_user: "{{ project_user }}"
+project_db_name: "{{ project_user }}"
+source_dir: "{{ dspace_source_dir }}"
+version: '{{ repo_version }}'
+repo_version: '{{ dspace_repo_version }}'
+apache_server_aliases: '{{ ansible_fqdn }}'
+dspace_home: "/dspace"
+dspace_source_dir: '{{ project_user_home }}/src'
+ant_source_dir: /opt/dspace-6.3-release/dspace/target/dspace-installer
