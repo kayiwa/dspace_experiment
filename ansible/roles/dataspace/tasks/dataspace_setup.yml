@@ -6,12 +6,12 @@
   file:
     path: "{{ dspace_home }}"
     state: directory
-    owner: "{{ project_user }}"
-    group: "{{ project_user }}"
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_user }}"
 
 - name: dspace | perform fresh install
   command: /usr/bin/ant fresh_install chdir={{ ant_source_dir }} creates={{ dspace_home }}/webapps/xmlui
-  become_user: "{{ project_user }}"
+  become_user: "{{ deploy_user }}"
   become: true
   ignore_errors: true
 

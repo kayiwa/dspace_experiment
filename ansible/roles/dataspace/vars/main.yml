@@ -1,11 +1,11 @@
 ---
 # vars file for dataspace
 postgres_databases:
-  - name: "{{ project_db_user }}"
+  - name: "{{ project_user }}"
 postgres_users:
-  - name: "{{ project_db_user }}"
+  - name: "{{ project_user }}"
     password: "{{ project_db_password | default('MyCoMpLeXpAsSwOrD') }}"
-    db: "{{ project_db_user }}"
+    db: "{{ project_user }}"
 postgres_hba_entries:
   - type: local
     database: all

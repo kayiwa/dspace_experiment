@@ -1,4 +1,7 @@
 ---
-dspace_group: "conan"
-dspace_user: "conan"
+dspace_group: "dspace"
+dspace_user: "dspace"
 ansible_user: "vagrant"
+dspace_source_dir: '{{ project_user_home }}/src'
+source_dir: "{{ dspace_source_dir }}"
+deploy_user: "{{ dspace_user }}"

@@ -1,0 +1,9 @@
+---
+- name: provision dataspace
+  hosts: all
+  user: "{{ ansible_user }}"
+  gather_facts: true
+  vars:
+    running_on_server: false
+  roles:
+    - {role: dataspace, become: true}

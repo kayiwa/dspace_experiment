@@ -2,7 +2,7 @@
 - name: the pgcrypto extension on this database
   postgresql_ext:
     name: pgcrypto
-    db: "{{ project_user }}"
+    db: "{{ deploy_user }}"
   become: true
   become_user: postgres
 
@@ -10,8 +10,8 @@
   file:
     path: "{{ source_dir }}"
     state: directory
-    owner: "{{ project_user }}"
-    group: "{{ project_user }}"
+    owner: "{{ deploy_user }}"
+    group: "{{ deploy_user }}"
     recurse: true
 
 - name: build it with maven
@@ -20,4 +20,4 @@
     chdir: /opt/dspace-6.3-release/dspace/
   ignore_errors: true
   become: true
-  become_user: '{{ project_user }}'
+  become_user: '{{ deploy_user }}'

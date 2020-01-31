@@ -4,7 +4,6 @@
   group:
     name: "{{ project_group }}"
     state: present
-    system: true
 
 - name: create user account
   user:
@@ -12,6 +11,7 @@
     group: "{{ project_user }}"
     home: "{{ project_user_home }}"
     force: true
+    shell: /bin/bash
     state: present
 
 - name: install software needed to for dspace and other needed utilities
