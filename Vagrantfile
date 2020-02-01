@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "dspace0#{i}" do |node|
       node.vm.hostname = "dspace0#{i}"
       node.vm.network :private_network, ip: "10.0.15.2#{i}"
+      node.vm.network :forwarded_port, guest: 8080, host: "920#{i}"
     end
   end
 
